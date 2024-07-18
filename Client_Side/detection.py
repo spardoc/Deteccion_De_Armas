@@ -47,7 +47,7 @@ class Detection(QThread):
 		self.running = True
 
 		# Starts camera
-		cap = cv2.VideoCapture(0)
+		cap = cv2.VideoCapture(1)
 		
 		# Detection while loop
 		while self.running:
