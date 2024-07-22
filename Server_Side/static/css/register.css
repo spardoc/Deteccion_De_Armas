@@ -60,8 +60,9 @@ body {
 }
 
 .wrap-input100 {
+    position: relative;
     margin-bottom: 20px;
-    width: 75%; /* Ensure the div does not exceed the container */
+    width: 100%; /* Ensure the div does not exceed the container */
     box-sizing: border-box;
 }
 
