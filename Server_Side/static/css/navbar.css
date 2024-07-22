@@ -1,23 +1,41 @@
+/* navbar.css */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #ecf0f1;
+    --accent-color: #3498db;
+    --text-color: #fff;
+    --navbar-height: 56px;
+}
 
-@font-face {
-    font-family: OpenSans-Regular;
-    src: url('../fonts/OpenSans/OpenSans-Regular.ttf'); 
-    }  
-    
-    * {
-        margin: 0px; 
-        padding: 0px; 
-        box-sizing: border-box;
-    }
-    
-    body, html {
-        height: 100%;
-        font-family: OpenSans-Regular, sans-serif;
-    }
+.navbar {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
 
+.navbar-brand {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    text-decoration: none;
+    margin-left: 45px;
+}
 
-.hello-msg{
-    font-size: 18px;
-    color: #fff;
-    margin-right: 60px;
-  }
+.form-inline {
+    display: flex;
+    align-items: center;
+}
+
+.hello-msg {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.hello-msg:hover {
+    text-decoration: underline;
+}
