@@ -47,7 +47,7 @@ class Detection(QThread):
 		self.running = True
 
 		# Starts camera
-		cap = cv2.VideoCapture(1)
+		cap = cv2.VideoCapture(0)
 		
 		# Detection while loop
 		while self.running:
@@ -123,7 +123,7 @@ class Detection(QThread):
 	# Sends alert to the server
 	def post_detection(self):
 		try:
-			url = 'https://domjur-weapon-detection.herokuapp.com/api/images/'
+			url = 'http://127.0.0.1:8000/api/images/'
 			headers = {'Authorization': 'Token ' + self.token}
 			files = {'image': open('saved_frame/frame.jpg', 'rb')}
 			data = {'user_ID': self.token,'location': self.location, 'alert_receiver': self.receiver}
@@ -135,6 +135,5 @@ class Detection(QThread):
 			# Bad response
 			else:
 				print('No se puede enviar alerta enviada al servidor')
-				
-		except:
-			print('No se puede acceder al servidor')
+		except Exception as e:
+			print('No se puede acceder al servidor:', e)
