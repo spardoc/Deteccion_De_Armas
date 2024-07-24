@@ -75,7 +75,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Ubicación de la cámara:</string>
+     <string>Ubicación Cámara:</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -177,7 +177,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>UPS_logo.jpeg</pixmap>
+     <pixmap>images/UPS_logo.jpeg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -196,7 +196,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>C:/Users/danie/OneDrive/Pictures/farmacia/Logo.webp</pixmap>
+     <pixmap>images/Logo.webp</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

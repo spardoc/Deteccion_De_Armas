@@ -67,7 +67,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Nombre usuario:</string>
+     <string>Usuario:</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_password">
@@ -75,7 +75,7 @@
      <rect>
       <x>30</x>
       <y>135</y>
-      <width>80</width>
+      <width>110</width>
       <height>16</height>
      </rect>
     </property>
@@ -161,7 +161,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>C:/Users/danie/OneDrive/Pictures/farmacia/Logo.webp</pixmap>
+     <pixmap>images/Logo.webp</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -180,7 +180,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>UPS_logo.jpeg</pixmap>
+     <pixmap>images/UPS_logo.jpeg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
