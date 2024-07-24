@@ -1,9 +1,8 @@
-{%  extends 'detection/main.html' %}
+{% extends 'detection/main.html' %}
 
 {% block content %}
 
 {% load event_tags %}
-
 {% load static %}
 
 <div class="limiter">
@@ -14,8 +13,8 @@
 				<div class="row">
 
 					<div class="col">
-						<!-- Location Input -->
-						<input class="form-control" type="text"  placeholder="Location"
+						<!-- Input de Ubicación -->
+						<input class="form-control" type="text"  placeholder="Ubicación"
 						name="{{ myFilter.form.location.name }}"
 						id="{{ myFilter.form.location.id_for_label }}"
 						{% if myFilter.form.location.value != None %}value="{{ myFilter.form.location.value|stringformat:'s' }}"{% endif %}
@@ -24,8 +23,8 @@
 					</div>
 
 					<div class="col">
-						<!-- Alert was sent to Input -->
-						<input class="form-control" type="text"  placeholder="Alert was sent to"
+						<!-- Input de Alerta enviada a -->
+						<input class="form-control" type="text"  placeholder="Alerta enviada a"
 						name="{{ myFilter.form.alert_receiver.name }}"
 						id="{{ myFilter.form.alert_receiver.id_for_label }}"
 						{% if myFilter.form.alert_receiver.value != None %}value="{{ myFilter.form.alert_receiver.value|stringformat:'s' }}"{% endif %}
@@ -34,8 +33,8 @@
 					</div>
 
 					<div class="col-2">
-						<!-- Start Date Input -->
-						<input class="form-control" type="text" id="date" placeholder="Start Date" autocomplete="off"
+						<!-- Input de Fecha de Inicio -->
+						<input class="form-control" type="text" id="date" placeholder="Fecha de Inicio" autocomplete="off"
 						name="{{ myFilter.form.start_date.name }}"
 						id="{{ myFilter.form.start_date.id_for_label }}"
 						{% if myFilter.form.start_date.value != None %}value="{{ myFilter.form.start_date.value|stringformat:'s' }}"{% endif %}
@@ -44,8 +43,8 @@
 					</div>
 
 					<div class="col-2">
-						<!-- End Date Input Input -->
-						<input class="form-control" type="text" id="date" placeholder="End Date" autocomplete="off"
+						<!-- Input de Fecha de Fin -->
+						<input class="form-control" type="text" id="date" placeholder="Fecha de Fin" autocomplete="off"
 						name="{{ myFilter.form.end_date.name }}"
 						id="{{ myFilter.form.end_date.id_for_label }}"
 						{% if myFilter.form.end_date.value != None %}value="{{ myFilter.form.end_date.value|stringformat:'s' }}"{% endif %}
@@ -54,7 +53,7 @@
 					</div>
 
 					<div class="col-1">
-						<button class="btn btn-primary" type="submit">Search</button>
+						<button class="btn btn-primary" type="submit">Buscar</button>
 					</div>
 				  </div>
 			</form>
@@ -84,11 +83,11 @@
 		
 			<table class="table table-image">
 				<tr>
-					<th scope="col" class="top-row">Detection</th>
-					<th scope="col" class="top-row">Location</th>
-					<th scope="col" class="top-row">Alert was sent to</th>
-					<th scope="col" class="top-row">Time</th>
-					<th scope="col" class="top-row">Alert</th>
+					<th scope="col" class="top-row">Detección</th>
+					<th scope="col" class="top-row">Ubicación</th>
+					<th scope="col" class="top-row">Alerta enviada a</th>
+					<th scope="col" class="top-row">Hora</th>
+					<th scope="col" class="top-row">Alerta</th>
 				</tr>
 
 				{% for alert in uploadAlert %}
@@ -102,7 +101,7 @@
 					
 					{% with uuid=alert.image|split:"." %}
 
-					<td><a class="btn btn-sm btn-info" href="/alert/{{uuid.0}}">View</a></td>
+					<td><a class="btn btn-sm btn-info" href="/alert/{{uuid.0}}">Ver</a></td>
 
 					{% endwith %}
 					
