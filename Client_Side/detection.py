@@ -126,7 +126,7 @@ class Detection(QThread):
 			url = 'http://127.0.0.1:8000/api/images/'
 			headers = {'Authorization': 'Token ' + self.token}
 			files = {'image': open('saved_frame/frame.jpg', 'rb')}
-			data = {'user_ID': self.token,'location': self.location, 'alert_receiver': self.receiver}
+			data = {'user_ID': self.token, 'location': self.location, 'alert_receiver': self.receiver}
 			response = requests.post(url, files=files, headers=headers, data=data)
 
 			# HTTP 200
@@ -134,6 +134,15 @@ class Detection(QThread):
 				print('Alerta enviada al servidor')
 			# Bad response
 			else:
-				print('No se puede enviar alerta enviada al servidor')
+				print('No se puede enviar alerta al servidor')
+				print(f'Código de respuesta: {response.status_code}')
+		except FileNotFoundError as e:
+			print('Archivo no encontrado:')
+		except requests.exceptions.ConnectionError as e:
+			print('Error de conexión:')
+		except requests.exceptions.Timeout as e:
+			print('La solicitud ha expirado:')
+		except requests.exceptions.RequestException as e:
+			print('Error en la solicitud:')
 		except Exception as e:
-			print('No se puede acceder al servidor:', e)
+			print('No se puede acceder al servidor:')
