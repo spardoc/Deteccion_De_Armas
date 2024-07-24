@@ -54,9 +54,9 @@ def send_email(serializer):
 
 # Prepares the alert message
 def prepare_alert_message(serializer):
-    image_data = split(serializer.data['image'], ".")
-    uuid = image_data[0]
-    url = 'http://127.0.0.1:8000/alert' + uuid
+    uuid_with_slashes = split(serializer.data['image'], ".")
+    uuid = split(uuid_with_slashes[3], "/")
+    url = 'http://127.0.0.1:8000/alert' + uuid[2]
     return 'Weapon Detected! View alert at ' + url
 
 # Splits string into a list
