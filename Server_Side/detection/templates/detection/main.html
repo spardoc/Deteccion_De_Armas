@@ -6,19 +6,19 @@
 	<title>Sistema de Detección de Armas</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="{% static '/css/dashboard.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static '/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static '/css/a.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static '/css/u.css' %}">
 
-	<!--  jQuery -->
+	<!-- jQuery -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-	<!-- Bootstrap Date-Picker Plugin -->
+	<!-- Plugin de Selector de Fecha de Bootstrap -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
 </head>
 <body>
-	{%  include 'detection/navbar.html' %}
+	{% include 'detection/navbar.html' %}
 	<div class="container-fluid">
 
 	{% block content %}

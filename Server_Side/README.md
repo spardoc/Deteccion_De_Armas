@@ -1,2 +1,0 @@
-# Weapon detection Server Side
- 
