@@ -21,12 +21,12 @@ class LoginWindow(QMainWindow):
 
 	# Open registration page
 	def go_to_register_page(self):
-		webbrowser.open('http://127.0.0.1:8000/register/')
+		webbrowser.open('https://server-side-deployment.onrender.com/register/')
 
 	# Login function that manages the token authentication
 	def login(self):
 		try:
-			url = 'http://127.0.0.1:8000/api/get_auth_token/'
+			url = 'https://server-side-deployment.onrender.com/api/get_auth_token/'
 			response = requests.post(url, data={'username': self.username_input.text(),'password': self.password_input.text()})
 			json_response = json.loads(response.text)
 

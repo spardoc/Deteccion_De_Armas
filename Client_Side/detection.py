@@ -123,7 +123,7 @@ class Detection(QThread):
 	# Sends alert to the server
 	def post_detection(self):
 		try:
-			url = 'http://127.0.0.1:8000/api/images/'
+			url = 'https://server-side-deployment.onrender.com/api/images/'
 			headers = {'Authorization': 'Token ' + self.token}
 			files = {'image': open('saved_frame/frame.jpg', 'rb')}
 			data = {'user_ID': self.token, 'location': self.location, 'alert_receiver': self.receiver}
