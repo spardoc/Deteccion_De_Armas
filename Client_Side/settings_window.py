@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
 from PyQt5.uic import loadUi
+from PyQt5.QtGui import QIcon
 
 from detection_window import DetectionWindow
 
@@ -8,6 +9,7 @@ class SettingsWindow(QMainWindow):
 	def __init__(self, token):
 		super(SettingsWindow, self).__init__()
 		loadUi('UI/settings_window.ui', self)
+		self.setWindowIcon(QIcon('UI\images\Logo.webp'))
 		
 		self.token = token
 

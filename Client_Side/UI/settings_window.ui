@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>300</width>
-    <height>300</height>
+    <width>350</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>300</width>
-    <height>300</height>
+    <width>350</width>
+    <height>400</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -26,26 +26,75 @@
    <string>Deteccion de arma</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QLabel {
-    background-image: url(:/images/UPS_logo.jpeg);
-    background-repeat: no-repeat;
-    background-position: center;
-}
-</string>
+   <string notr="true">
+      QWidget {
+        background-color: #2c3e50;
+      }
+      QLabel {
+        color: white;
+      }
+      QLineEdit {
+        background-color: white;
+        color: black;
+        padding: 5px;
+      }
+      QPushButton {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 2px;
+        cursor: pointer;
+        border-radius: 10px;
+        min-height: 40px; /* Asegura que los botones sean suficientemente altos */
+      }
+      QPushButton:hover {
+        background-color: #45a049;
+      }
+    </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="label_title">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>50</y>
-      <width>241</width>
+      <y>20</y>
+      <width>290</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Configuración Inicial</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_description">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>70</y>
+      <width>290</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Palatino Linotype</family>
+      <family>Arial</family>
       <pointsize>10</pointsize>
      </font>
     </property>
@@ -59,18 +108,18 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="label_camera">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>101</y>
-      <width>121</width>
-      <height>16</height>
+      <y>120</y>
+      <width>150</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Palatino Linotype</family>
+      <family>Arial</family>
       <pointsize>10</pointsize>
      </font>
     </property>
@@ -78,18 +127,18 @@
      <string>Ubicación Cámara:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="label_email">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>156</y>
-      <width>121</width>
-      <height>16</height>
+      <y>180</y>
+      <width>150</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Palatino Linotype</family>
+      <family>Arial</family>
       <pointsize>10</pointsize>
      </font>
     </property>
@@ -97,32 +146,13 @@
      <string>Correo electrónico:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>250</y>
-      <width>240</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Palatino Linotype</family>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Iniciar Monitoreo</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="location_input">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>125</y>
-      <width>240</width>
-      <height>20</height>
+      <y>140</y>
+      <width>290</width>
+      <height>30</height>
      </rect>
     </property>
    </widget>
@@ -130,65 +160,56 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>180</y>
-      <width>240</width>
-      <height>20</height>
+      <y>200</y>
+      <width>290</width>
+      <height>30</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>0</y>
-      <width>240</width>
-      <height>51</height>
+      <x>30</x>
+      <y>280</y>
+      <width>290</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Palatino Linotype</family>
+      <family>Arial</family>
       <pointsize>14</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Universidad Politécnica Salesiana</string>
-    </property>
-    <property name="textFormat">
-     <enum>Qt::RichText</enum>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>true</bool>
+     <string>Iniciar Monitoreo</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="label_ups_logo">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
       <width>41</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>images/UPS_logo.jpeg</pixmap>
+     <pixmap>images/UPS_logo.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="img_label">
+   <widget class="QLabel" name="label_custom_logo">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>200</y>
-      <width>51</width>
+      <x>300</x>
+      <y>10</y>
+      <width>41</width>
       <height>41</height>
      </rect>
     </property>
@@ -205,8 +226,6 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

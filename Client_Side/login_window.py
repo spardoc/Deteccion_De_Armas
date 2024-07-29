@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
 from PyQt5.uic import loadUi
+from PyQt5.QtGui import QIcon
 import webbrowser
 import requests
 import json
@@ -10,7 +11,7 @@ class LoginWindow(QMainWindow):
 	def __init__(self):
 		super(LoginWindow, self).__init__()
 		loadUi('UI/login_window.ui', self)
-
+		self.setWindowIcon(QIcon('UI\images\Logo.webp'))
 		self.register_button.clicked.connect(self.go_to_register_page)
 		self.login_button.clicked.connect(self.login)
 

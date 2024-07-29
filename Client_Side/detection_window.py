@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5.uic import loadUi
 from PyQt5.QtCore import QThread, Qt, pyqtSignal, pyqtSlot
 from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtGui import QIcon
 import cv2
 import numpy as np
 import time
@@ -13,7 +14,7 @@ class DetectionWindow(QMainWindow):
 	def __init__(self):
 		super(DetectionWindow, self).__init__()	
 		loadUi('UI/detection_window.ui', self)
-
+		self.setWindowIcon(QIcon('UI\images\Logo.webp'))
 		self.stop_detection_button.clicked.connect(self.close)
 
 	# Created detection instance

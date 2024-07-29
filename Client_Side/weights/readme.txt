@@ -1,1 +1,1 @@
-Add yolov4.weights within this folder.
+Añade los pesos de YOLOv4 en esta carpeta.
