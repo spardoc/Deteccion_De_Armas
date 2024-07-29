@@ -105,7 +105,7 @@ class Detection(QThread):
 						#Save detected frame every 10 seconds
 						if elapsed_time <= -10:
 							starting_time = time.time()
-							self.save_detection(frame)
+							self.save_detection(frame, boxes[i])
 				
 				# Showing final result
 				rgbImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -115,8 +115,13 @@ class Detection(QThread):
 				self.changePixmap.emit(p)
 
 	# Saves detected frame as a .jpg within the saved_alert folder
-	def save_detection(self, frame):
-		cv2.imwrite("saved_frame/frame.jpg", frame)
+	def save_detection(self, frame, box):
+		x, y, w, h = box
+		mask = np.zeros_like(frame)
+		mask[y:y + h, x:x + w] = frame[y:y + h, x:x + w]
+		blurred_frame = cv2.GaussianBlur(frame, (21, 21), 0)
+		combined = np.where(mask != 0, frame, blurred_frame)
+		cv2.imwrite("saved_frame/frame.jpg", combined)
 		print('Imagen Guardada')
 		self.post_detection()
 
