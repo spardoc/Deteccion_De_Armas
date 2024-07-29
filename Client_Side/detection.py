@@ -28,7 +28,7 @@ class Detection(QThread):
             print(str(one))
 
         # Default COM port is 10
-        com = 10
+        com = 3
 
         for i in range(len(portsList)):
             if portsList[i].startswith("COM" + str(com)):
@@ -38,7 +38,7 @@ class Detection(QThread):
 
     # Runs the detection model, evaluates detections and draws boxes around detected objects
     def run(self):
-        com_port = self.select_com_port()
+        com_port = "COM3"
         if com_port is None:
             print("Invalid COM port selected.")
             return
@@ -48,7 +48,7 @@ class Detection(QThread):
         serialInst.port = com_port
         serialInst.open()
 
-        serialInst.write("OFF")
+        serialInst.write("OFF".encode('utf-8'))       
         # Loads Yolov4
         net = cv2.dnn.readNet("weights/yolov4.weights", "cfg/yolov4.cfg")
         classes = []
@@ -114,12 +114,13 @@ class Detection(QThread):
                             confidences.append(float(confidence))
                             class_ids.append(class_id)
 
-                            serialInst.write('ON')
-                    serialInst.write('OFF')
+                            serialInst.write("ON".encode('utf-8'))
+                    serialInst.write("OFF".encode('utf-8'))
                 indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.8, 0.3)
 
                 #Draw boxes around detected objects
                 for i in range(len(boxes)):
+                    serialInst.write("ON".encode('utf-8'))
                     if i in indexes:
                         x, y, w, h = boxes[i]
                         label = str(classes[class_ids[i]])
@@ -136,6 +137,7 @@ class Detection(QThread):
                             self.save_detection(frame, boxes[i])
                 
                 # Showing final result
+                serialInst.write("ON".encode('utf-8'))
                 rgbImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 bytesPerLine = channels * width
                 convertToQtFormat = QImage(rgbImage.data, width, height, bytesPerLine, QImage.Format_RGB888)
