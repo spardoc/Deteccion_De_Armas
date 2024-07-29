@@ -38,8 +38,10 @@ twilio = "==6.50.1"
 urllib3 = "==1.26.2"
 whitenoise = "==5.2.0"
 wrapt = "==1.12.1"
-python-dotenv = "*"
-psycopg2-binary = "*"
+python-dotenv = "==1.0.1"
+psycopg2-binary = "==2.9.9"
+colorama = "==0.4.6"
+psycopg2 = "==2.9.9"
 
 [dev-packages]
 

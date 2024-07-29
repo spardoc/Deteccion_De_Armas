@@ -8,4 +8,4 @@ El programa de inteligencia artificial (IA) diseñado para la detección de arma
 
 Al detectar una posible amenaza, el sistema genera alertas que son enviadas a los operadores de seguridad para que puedan tomar medidas preventivas de inmediato. Este tipo de tecnología se utiliza en entornos de alta seguridad, como aeropuertos, estaciones de transporte, eventos públicos y escuelas, contribuyendo significativamente a la prevención de incidentes violentos y mejorando la seguridad general.
 
-Explicación de la aplicación: [ExplicacionIA - Hecho con Clipchamp_1721799057737.mp4](https://drive.google.com/file/d/10XUQSPdyWAceLrQJIJtl1Q8WDScJviRj/view?usp=sharing)
+Explicación de la aplicación: https://drive.google.com/file/d/1HhS94LA9zYLF9M9P4gpctSr2h4vKb2TB/view?usp=sharing
