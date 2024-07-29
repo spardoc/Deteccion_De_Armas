@@ -6,6 +6,7 @@ import cv2
 import numpy as np
 import time
 import requests
+import serial.tools.list_ports
 
 # Handles the YOLOv4 detection algorithm, saves detected frames and sends alert to the server-side application
 class Detection(QThread):
@@ -18,10 +19,36 @@ class Detection(QThread):
         self.receiver = receiver
     
     changePixmap = pyqtSignal(QImage)
+    def select_com_port(self):
+        ports = serial.tools.list_ports.comports()
+        portsList = []
+
+        for one in ports:
+            portsList.append(str(one))
+            print(str(one))
+
+        # Default COM port is 10
+        com = 10
+
+        for i in range(len(portsList)):
+            if portsList[i].startswith("COM" + str(com)):
+                return "COM" + str(com)
+
+        return None
 
     # Runs the detection model, evaluates detections and draws boxes around detected objects
     def run(self):
-        
+        com_port = self.select_com_port()
+        if com_port is None:
+            print("Invalid COM port selected.")
+            return
+
+        serialInst = serial.Serial()
+        serialInst.baudrate = 9600
+        serialInst.port = com_port
+        serialInst.open()
+
+        serialInst.write("OFF")
         # Loads Yolov4
         net = cv2.dnn.readNet("weights/yolov4.weights", "cfg/yolov4.cfg")
         classes = []
@@ -87,6 +114,8 @@ class Detection(QThread):
                             confidences.append(float(confidence))
                             class_ids.append(class_id)
 
+                            serialInst.write('ON')
+                    serialInst.write('OFF')
                 indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.8, 0.3)
 
                 #Draw boxes around detected objects
@@ -122,6 +151,8 @@ class Detection(QThread):
         combined = np.where(mask != 0, frame, blurred_frame)
         cv2.imwrite("saved_frame/frame.jpg", combined)
         print('Imagen Guardada')
+        
+
         self.post_detection()
 
     # Sends alert to the server
